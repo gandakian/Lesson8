@@ -134,6 +134,8 @@ public class GameView extends SurfaceView {
             tomActive = false;
             tomX = -50.0f;
             tomY = -101.0f;
+
+
         }
 
         /*else

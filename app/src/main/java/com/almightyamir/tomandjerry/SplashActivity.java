@@ -2,7 +2,6 @@ package com.almightyamir.tomandjerry;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
     Canvas canvas;
 
     /** Duration of wait **/
-    private final int SPLASH_DISPLAY_LENGTH = 1000;
+    private final int SPLASH_DISPLAY_LENGTH = 10000;
 
 
     @Override
@@ -25,23 +24,25 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         LinearLayout mainLayout = new LinearLayout(this);
-        mainLayout.setGravity(Gravity.CENTER_VERTICAL);
+        mainLayout.setGravity(Gravity.HORIZONTAL_GRAVITY_MASK);
+        mainLayout.setBackgroundResource(R.drawable.tom_and_jerry_splash);
 
-        splash = BitmapFactory.decodeResource(getResources(), R.drawable.tom_and_jerry_splash);
-        canvas.drawBitmap(splash, 0, 0, null);
+        /*splash = BitmapFactory.decodeResource(getResources(), R.drawable.tom_and_jerry_splash);
+        splash = Bitmap.createScaledBitmap(splash, getWidth(), getHeight(), false);
+        canvas.drawBitmap(splash, 0, 0, null);*/
 
         TextView heading = new TextView(this);
-        heading.setGravity(Gravity.CENTER | Gravity.START);
+        heading.setGravity(Gravity.CENTER);
         heading.setText("TOM AND JERRY the game");
         heading.setTextSize(20);
         mainLayout.addView(heading);
 
         TextView description = new TextView(this);
-        description.setGravity(Gravity.CENTER | Gravity.START);
-        description.setText("Release Tom to Catch the notorious moving Jerry to earn scores.");
+        description.setGravity(Gravity.CENTER);
+        description.setText("Release Tom to Catch the notorious moving Jerry and earn scores.");
         description.setTextSize(20);
         mainLayout.addView(description);
-        
+
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/
