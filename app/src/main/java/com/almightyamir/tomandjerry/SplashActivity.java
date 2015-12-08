@@ -24,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         LinearLayout mainLayout = new LinearLayout(this);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
         mainLayout.setGravity(Gravity.HORIZONTAL_GRAVITY_MASK);
         mainLayout.setBackgroundResource(R.drawable.tom_and_jerry_splash);
 
